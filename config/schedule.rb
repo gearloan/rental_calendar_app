@@ -1,5 +1,7 @@
 set :output, "log/cron.log"
 
-every 1.minutes do
-    rake "calendar_feeds:import_all", environment: 'development'
+set :environment, ENV['RAILS_ENV'] || 'development'
+
+every 5.minutes do
+  rake "calendar_feeds:import_all"
 end
