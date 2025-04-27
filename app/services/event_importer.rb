@@ -1,3 +1,5 @@
+# app/services/event_importer.rb
+
 require "open-uri"
 require "icalendar"
 
@@ -8,37 +10,47 @@ class EventImporter
     calendars = Icalendar::Calendar.parse(file.read)
     puts "DEBUG: parsed calendars.length = #{calendars.length}"
 
-    # Preload all existing events into a hash
-    existing_events = Event.pluck(:title, :start_time, :end_time, :source).map do |title, start_time, end_time, source|
-      ["#{title}-#{start_time}-#{end_time}-#{source}", true]
-    end.to_h
-
     calendars.each do |calendar|
-      puts "DEBUG: calendar.events.length = #{calendar.events.length}"
       calendar.events.each do |event|
-        title = event.summary.to_s.strip.presence || "No Title"
-        start_time = (event.dtstart.respond_to?(:to_datetime) ? event.dtstart.to_datetime : event.dtstart).to_date
-        end_time = (event.dtend.respond_to?(:to_datetime) ? event.dtend.to_datetime : event.dtend).to_date
-        event_source = source.to_s.strip
+        puts "DEBUG: processing event: #{event.summary.inspect}"
 
-        event_key = "#{title}-#{start_time}-#{end_time}-#{event_source}"
+        # Find existing by UID first
+        existing_event = Event.find_by(uid: event.uid.to_s) if event.uid.present?
 
-        unless existing_events[event_key]
-          Event.create!(
-            title: title,
-            description: "",
-            start_time: start_time,
-            end_time: end_time,
-            source: event_source
+        # If no UID match, fall back to title/start/end match
+        if existing_event.nil?
+          existing_event = Event.find_by(
+            title: event.summary.to_s.presence || "No Title",
+            start_time: normalize_datetime(event.dtstart),
+            end_time: normalize_datetime(event.dtend),
+            source: source.to_s
           )
-          existing_events[event_key] = true
-          puts "DEBUG: created event #{title} (#{start_time} - #{end_time})"
+        end
+
+        if existing_event
+          puts "DEBUG: updating existing event #{existing_event.id}"
+          existing_event.update!(
+            title: event.summary.to_s.presence || "No Title",
+            description: event.description.to_s.presence || "",
+            start_time: normalize_datetime(event.dtstart),
+            end_time: normalize_datetime(event.dtend),
+            canceled: event.status.to_s.downcase == "cancelled",
+            source: source.to_s
+          )
         else
-          puts "DEBUG: skipped duplicate event #{title} (#{start_time} - #{end_time})"
+          puts "DEBUG: creating new event"
+          Event.create!(
+            title: event.summary.to_s.presence || "No Title",
+            description: event.description.to_s.presence || "",
+            start_time: normalize_datetime(event.dtstart),
+            end_time: normalize_datetime(event.dtend),
+            source: source.to_s,
+            uid: event.uid.to_s.presence,
+            canceled: event.status.to_s.downcase == "cancelled"
+          )
         end
       end
     end
-
     true
   rescue => e
     puts "ERROR: #{e.class} - #{e.message}"
@@ -47,5 +59,12 @@ class EventImporter
 
   def self.import_from_feed(feed)
     import_from_url(feed.url, source: feed.source)
+  end
+
+  private
+
+  def self.normalize_datetime(val)
+    return unless val
+    val.respond_to?(:to_datetime) ? val.to_datetime : val
   end
 end

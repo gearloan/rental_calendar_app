@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
     def index
-      @events = Event.all
-  
+      @events = Event.where(canceled: false)
+        
       respond_to do |format|
         format.html # if people visit /events in browser
         format.json do
