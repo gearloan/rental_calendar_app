@@ -1,0 +1,2 @@
+class CalendarFeed < ApplicationRecord
+end
