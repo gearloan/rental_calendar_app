@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_27_042749) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_27_135141) do
   create_table "calendar_feeds", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -22,8 +22,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_27_042749) do
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.date "start_time"
+    t.date "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "source"

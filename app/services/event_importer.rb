@@ -3,38 +3,49 @@ require "icalendar"
 
 class EventImporter
   def self.import_from_url(url, source:)
-    Event.where(source: source).delete_all
-
+    puts "DEBUG: starting import_from_url..."
     file = URI.open(url)
     calendars = Icalendar::Calendar.parse(file.read)
-    calendars.each do |calendar|
-      calendar.events.each do |event|
-        existing_event = Event.find_by(
-          title: event.summary || "No Title",
-          start_time: event.dtstart.to_datetime,
-          end_time: event.dtend.to_datetime,
-          source: source
-        )
+    puts "DEBUG: parsed calendars.length = #{calendars.length}"
 
-        unless existing_event
+    # Preload all existing events into a hash
+    existing_events = Event.pluck(:title, :start_time, :end_time, :source).map do |title, start_time, end_time, source|
+      ["#{title}-#{start_time}-#{end_time}-#{source}", true]
+    end.to_h
+
+    calendars.each do |calendar|
+      puts "DEBUG: calendar.events.length = #{calendar.events.length}"
+      calendar.events.each do |event|
+        title = event.summary.to_s.strip.presence || "No Title"
+        start_time = (event.dtstart.respond_to?(:to_datetime) ? event.dtstart.to_datetime : event.dtstart).to_date
+        end_time = (event.dtend.respond_to?(:to_datetime) ? event.dtend.to_datetime : event.dtend).to_date
+        event_source = source.to_s.strip
+
+        event_key = "#{title}-#{start_time}-#{end_time}-#{event_source}"
+
+        unless existing_events[event_key]
           Event.create!(
-            title: event.summary || "No Title",
-            description: event.description || "",
-            start_time: event.dtstart.to_datetime,
-            end_time: event.dtend.to_datetime,
-            source: source
+            title: title,
+            description: "",
+            start_time: start_time,
+            end_time: end_time,
+            source: event_source
           )
+          existing_events[event_key] = true
+          puts "DEBUG: created event #{title} (#{start_time} - #{end_time})"
+        else
+          puts "DEBUG: skipped duplicate event #{title} (#{start_time} - #{end_time})"
         end
       end
     end
+
     true
   rescue => e
-    Rails.logger.error("Error importing ICS: #{e.message}")
+    puts "ERROR: #{e.class} - #{e.message}"
     false
   end
 
   def self.import_from_feed(feed)
     import_from_url(feed.url, source: feed.source)
   end
-  
 end
