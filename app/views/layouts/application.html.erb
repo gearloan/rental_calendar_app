@@ -21,10 +21,10 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app %>
-
-    <%= javascript_include_tag "fullcalendar.min.js" %>    
     
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", type: "module", "data-turbo-track": "reload" %>
+    
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
 
   </head>
 

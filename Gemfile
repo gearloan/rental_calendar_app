@@ -55,3 +55,5 @@ end
 gem "stimulus-rails"
 
 gem "icalendar"
+
+gem "jsbundling-rails"

@@ -1,7 +1,10 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import { application } from "controllers/application"
-import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
+import { Application } from "@hotwired/stimulus"
 
-eagerLoadControllersFrom("controllers", application)
+// No more definitionsFromContext needed!!
 
-window.Stimulus = application
+import CalendarController from "./controllers/calendar_controller"
+import FlatpickrController from "./controllers/flatpickr_controller"
+
+window.Stimulus = Application.start()
+Stimulus.register("calendar", CalendarController)
+Stimulus.register("flatpickr", FlatpickrController)
