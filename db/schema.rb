@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_27_135141) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_27_181143) do
   create_table "calendar_feeds", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -27,5 +27,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_27_135141) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "source"
+    t.string "uid"
+    t.boolean "canceled", default: false
+    t.index ["uid"], name: "index_events_on_uid"
   end
 end
