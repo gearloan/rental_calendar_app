@@ -8,3 +8,43 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+
+/* START Calendar Styling */
+
+  /* 1. Slight darken on hover */
+  .fc-event div:hover {
+    filter: brightness(70%);
+    transition: filter 0.2s ease;
+  }
+  
+
+/* 2. Minor responsive tweaks for mobile */
+@media (max-width: 600px) {
+  .fc-daygrid-day-frame {
+    padding: 2px; /* Reduce padding for tight spaces */
+  }
+
+  .fc-daygrid-day {
+    min-height: 50px; /* Slightly taller day squares for tapping */
+  }
+  
+}
+
+/* 3. Safety reset for event containers */
+.fc-event, .fc-daygrid-event {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* 4. Inner fills (our generated divs) */
+.fc-event div {
+  height: 100%;
+  width: 100%;
+}
+/* END Calendar Styling */
