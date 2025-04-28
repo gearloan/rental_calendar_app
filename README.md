@@ -1,5 +1,9 @@
 # 🏡 Rental Calendar App
 
+[![Ruby on Rails](https://img.shields.io/badge/Rails-7.0-red.svg)](https://rubyonrails.org)
+[![Stimulus](https://img.shields.io/badge/Stimulus-3.0-blue.svg)](https://stimulus.hotwired.dev)
+[![FullCalendar](https://img.shields.io/badge/FullCalendar-6.1-brightgreen.svg)](https://fullcalendar.io)
+
 A **Rails 7 + Stimulus + FullCalendar** app to manage and display booking availability for a rental property.
 
 ---
