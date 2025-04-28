@@ -68,3 +68,5 @@ gem "aws-sdk-s3", "~> 1.184", require: false
 gem "slim-rails"
 
 gem "html2slim"
+
+gem "tailwindcss-rails"
