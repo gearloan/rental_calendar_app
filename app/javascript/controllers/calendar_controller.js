@@ -58,14 +58,14 @@ export default class extends Controller {
     } else if (isStart) {
       // Check-in day
       fill.style.right = "0";
-      fill.style.width = "30%";
+      fill.style.width = "60%";
       fill.style.backgroundColor = bgColor;
       fill.style.borderTopLeftRadius = "12px";
       fill.style.borderBottomLeftRadius = "12px";
     } else if (isCheckout) {
       // Checkout day
       fill.style.left = "0";
-      fill.style.width = "30%";
+      fill.style.width = "15%";
       fill.style.backgroundColor = bgColor;
       fill.style.borderTopRightRadius = "12px";
       fill.style.borderBottomRightRadius = "12px";
