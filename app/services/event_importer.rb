@@ -58,7 +58,16 @@ class EventImporter
   end
 
   def self.import_from_feed(feed)
+    puts "[IMPORTER] Starting feed import..."
     import_from_url(feed.url, source: feed.source)
+  end
+
+  def self.import_from_feed_sources
+    puts "[IMPORTER] Importing from all CalendarFeeds..."
+    CalendarFeed.find_each do |feed|
+      puts "[IMPORTER] Importing feed from #{feed.url}"
+      import_from_feed(feed)
+    end
   end
 
   private
@@ -68,3 +77,4 @@ class EventImporter
     val.respond_to?(:to_datetime) ? val.to_datetime : val
   end
 end
+

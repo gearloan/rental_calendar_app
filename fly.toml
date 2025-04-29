@@ -32,12 +32,13 @@ console_command = '/rails/bin/rails console'
 [env]
   PORT = "8080"
 
-[processes]
-  app = "./bin/rake litestream:run ./bin/rails server"
-
 [mounts]
   source = "data"
   destination = "/data"
   auto_extend_size_threshold = 80
   auto_extend_size_increment = "1GB"
   auto_extend_size_limit = "10GB"
+
+[processes]
+  app = "./bin/rake litestream:run ./bin/rails server"
+  cron = "cron -f"
