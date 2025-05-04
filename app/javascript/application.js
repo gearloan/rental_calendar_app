@@ -1,5 +1,4 @@
 import { Application } from "@hotwired/stimulus"
-
 // No more definitionsFromContext needed!!
 
 import CalendarController from "./controllers/calendar_controller"
@@ -10,3 +9,9 @@ Stimulus.register("calendar", CalendarController)
 Stimulus.register("flatpickr", FlatpickrController)
 
 //import "../assets/stylesheets/application.tailwind.css"
+
+import { gsap } from "gsap";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
