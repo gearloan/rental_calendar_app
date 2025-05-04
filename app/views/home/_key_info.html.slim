@@ -1,0 +1,22 @@
+section.mx-auto.max-w-screen-xl.px-4.space-y-20.flex.flex-wrap.flex-col.lg:flex-row.items-start.gap-8.p-5.pt-10
+  .left.w-full.lg:flex-5
+    p.mb-4
+      | Eligendi sint a quae sint. Eos numquam qui repellat.
+      | Soluta ea neque assumenda sed ad quibusdam. Maiores rem minus qui ducimus et omnis.
+      | Ad odio enim quibusdam facilis.
+
+    p.mb-8
+      | Magnam et nihil velit omnis rerum iste corporis.
+      | Tenetur numquam repellat unde optio dolorem. Aut quia corrupti ipsum ut eveniet.
+      | Est et libero cupiditate facere quisquam facilis tempore consequuntur.
+      | Qui optio quia non sed atque.
+
+    ul.grid.grid-cols-2.md:grid-cols-3.gap-6
+      - rental_amenities.each do |icon, label, text|
+        li class="grid grid-cols-[auto_1fr] gap-4 items-start"
+          = inline_svg_tag("icons/#{icon}.svg", class: "w-6 h-6 text-blue-500", aria: { label: label }, focusable: false)
+          p = text
+
+  .right.w-full.lg:flex-3.flex.flex-col.justify-start.min-h-[600px]
+    h2.text-center Check Availibility
+    #calendar[data-controller="calendar" data-calendar-target="calendar" class="w-full h-full max-w-[900px] mx-auto"]
