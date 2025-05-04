@@ -5,7 +5,15 @@ module.exports = {
     './app/javascript/**/*.{js,ts}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'cool-sage': '#819b99',
+        'cool-sage-100': '#d3dddc',
+        'cool-sage-700': '#5a706f',
+        'cool-sage-hover': '#6e8886',
+        'cool-sage-accent': '#a3b6b4',
+      }
+    }
   },
   plugins: [],
 }
