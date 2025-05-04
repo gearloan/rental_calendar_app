@@ -1,0 +1,10 @@
+section.bg-teal-900.text-white.text-center.px-6.py-20
+  - quote = thoreau_quotes.sample
+  - font_size = quote.length < 100 ? "text-4xl" : quote.length < 180 ? "text-3xl" : "text-2xl"
+
+  p class="font-playfair italic #{font_size} max-w-4xl mx-auto mb-6"
+    = quote
+
+  p.text-xs.uppercase.tracking-widest.font-lato
+    | — Henry David Thoreau
+
