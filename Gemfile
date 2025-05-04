@@ -69,4 +69,8 @@ gem "slim-rails"
 
 gem "html2slim"
 
+gem "tailwindcss-ruby"
+
 gem "tailwindcss-rails"
+
+gem "inline_svg"  

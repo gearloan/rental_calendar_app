@@ -9,4 +9,4 @@ window.Stimulus = Application.start()
 Stimulus.register("calendar", CalendarController)
 Stimulus.register("flatpickr", FlatpickrController)
 
-import "../assets/stylesheets/application.tailwind.css"
+//import "../assets/stylesheets/application.tailwind.css"
