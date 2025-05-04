@@ -9,6 +9,8 @@ export default class extends Controller {
     this.calendar = new Calendar(this.calendarTarget, {
       plugins: [dayGridPlugin],
       initialView: "dayGridMonth",
+      contentHeight: "auto",
+      fixedWeekCount: false,
       events: "/events.json",
       eventDisplay: "background",
       firstDay: 0, // Sunday start, or change to 1 for Monday
