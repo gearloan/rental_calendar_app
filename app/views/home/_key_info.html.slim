@@ -1,21 +1,16 @@
-section.flex.flex-row.gap-8.max-w-screen-xl.mx-auto
+section.flex.flex-row.gap-8.max-w-screen-xl.mx-auto.py-5.items-center
   .left
-    p.mb-4
-      | Eligendi sint a quae sint. Eos numquam qui repellat.
-      | Soluta ea neque assumenda sed ad quibusdam. Maiores rem minus qui ducimus et omnis.
-      | Ad odio enim quibusdam facilis.
+    p.mb-4.lg:w-3/4
+      | This recently renovated waterfront home comfortably hosts up to six guests, with everything you'd expect from a well-appointed retreat — full kitchen, modern appliances, reliable high-speed internet, and easy access to nearby stores and services.
 
-    p.mb-8
-      | Magnam et nihil velit omnis rerum iste corporis.
-      | Tenetur numquam repellat unde optio dolorem. Aut quia corrupti ipsum ut eveniet.
-      | Est et libero cupiditate facere quisquam facilis tempore consequuntur.
-      | Qui optio quia non sed atque.
+    p.mb-8.lg:w-3/4
+      | It’s peaceful here. Quiet. You’re surrounded by nature, with a private pier just steps from the house and expansive water views. It feels remote, but you're still close to the basics — ideal for families, couples, or anyone looking to decompress without going off-grid.
 
     ul.grid.grid-cols-2.md:grid-cols-3.gap-6
       - rental_amenities.each do |icon, label, text|
-        li class="grid grid-cols-[auto_1fr] gap-4 items-start"
-          = inline_svg_tag("icons/#{icon}.svg", class: "w-6 h-6 text-blue-500", aria: { label: label }, focusable: false)
-          p = text
+        li class="grid grid-cols-[auto_1fr] gap-4 items-center"
+          = inline_svg_tag("icons/#{icon}.svg", class: "w-9 h-9 text-blue-500", aria: { label: label }, focusable: false)
+          span = text
 
 
   .right
