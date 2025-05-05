@@ -1,5 +1,5 @@
-section.mx-auto.max-w-screen-xl.px-4.space-y-20.flex.flex-wrap.flex-col.lg:flex-row.items-start.gap-8.p-5.pt-10
-  .left.w-full.lg:flex-5
+section.flex.flex-row.gap-8.max-w-screen-xl.mx-auto
+  .left
     p.mb-4
       | Eligendi sint a quae sint. Eos numquam qui repellat.
       | Soluta ea neque assumenda sed ad quibusdam. Maiores rem minus qui ducimus et omnis.
@@ -17,6 +17,7 @@ section.mx-auto.max-w-screen-xl.px-4.space-y-20.flex.flex-wrap.flex-col.lg:flex-
           = inline_svg_tag("icons/#{icon}.svg", class: "w-6 h-6 text-blue-500", aria: { label: label }, focusable: false)
           p = text
 
-  .right.w-full.lg:flex-3.flex.flex-col.justify-start.min-h-[600px]
+
+  .right
     h2.text-center Check Availibility
     #calendar[data-controller="calendar" data-calendar-target="calendar" class="w-full h-full max-w-[900px] mx-auto"]
