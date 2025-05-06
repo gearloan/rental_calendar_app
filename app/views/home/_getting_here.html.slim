@@ -1,3 +1,11 @@
-section
-    p 
-    | We’re located just off I-95, within easy reach of Baltimore and surrounding areas. Most guests arrive by car, and parking is available on-site. We’ll provide the exact address and arrival instructions after booking. A map is included below for reference.
+section.getting-here.relative class="min-h-[700px]"
+  .absolute.inset-0.bg-cover.bg-center style="background-image: url(#{asset_path('static-map.jpg')})"
+    .absolute.inset-0.bg-black.bg-opacity-40
+
+  .absolute.inset-0.flex.items-center.justify-center
+    .bg-white.bg-opacity-85.max-w-xl.p-8.rounded.shadow-xl.text-center
+      h3.text-4xl.mb-4 
+        span.italic Getting 
+        span.font-bold Here
+      p.text-lg.leading-7
+        | Just 25 minutes from Baltimore and right off I-95, it’s a smooth trip. We’ll send exact directions when you book — and yes, there’s parking.

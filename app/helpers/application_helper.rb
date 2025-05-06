@@ -28,7 +28,6 @@ module ApplicationHelper
       "It is the marriage of the soul with nature that makes the intellect fruitful, and gives birth to imagination",
       "I have a room all to myself; it is nature.",
       "There are moments when all anxiety and stated toil are becalmed in the infinite leisure and repose of nature.",
-      "My profession is to always find God in nature.",
       "Measure your health by your sympathy with morning and spring. If there is no response in you to the awakening of nature -if the prospect of an early morning walk does not banish sleep, if the warble of the first bluebird does not thrill you -know that the morning and spring of your life are past. Thus may you feel your pulse.",
       "There are certain pursuits which, if not wholly poetic and true, do at least suggest a nobler and finer relation to nature than we know. The keeping of bees, for instance.",
       "This curious world we inhabit is more wonderful than convenient; more beautiful than it is useful; it is more to be admired and enjoyed than used.",

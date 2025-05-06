@@ -1,28 +1,28 @@
+
 @font-face {
-    font-family: 'Barlow';
-    src: url('/assets/barlow/Barlow-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Barlow';
-    src: url('/assets/barlow/Barlow-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/playfair/PlayfairDisplay-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/playfair/PlayfairDisplay-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-  }
-  
+  font-family: 'Barlow';
+  src: url('/assets/fonts/barlow/Barlow-Light.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url('/assets/fonts/barlow/Barlow-Regular.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/assets/fonts/playfair/Playfair_144pt_SemiCondensed-LightItalic.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/assets/fonts/playfair/Playfair_144pt_SemiCondensed-SemiBold.ttf') format('ttf');
+  font-weight: 700;
+  font-style: normal;
+}

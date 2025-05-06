@@ -14,7 +14,7 @@ module.exports = {
         'cool-sage-accent': '#a3b6b4',
       },
       fontFamily: {
-        sans: ['Barlow', 'sans-serif'],
+        //sans: ['Barlow', 'sans-serif'],
         serif: ['"Playfair Display"', 'serif']
       }
     }

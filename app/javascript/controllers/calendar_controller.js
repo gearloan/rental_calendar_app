@@ -10,7 +10,7 @@ export default class extends Controller {
       plugins: [dayGridPlugin],
       initialView: "dayGridMonth",
       contentHeight: "auto",
-      fixedWeekCount: false,
+      fixedWeekCount: true,
       events: "/events.json",
       eventDisplay: "background",
       firstDay: 0, // Sunday start, or change to 1 for Monday

@@ -7,10 +7,11 @@
 /* START Tailwind Base modifications */
 @layer base {
     body {
-      font-family: 'Lato';
-      color: #777;
+      /*font-family: 'Lato';*/
+      color: #777777;
+      background-color: #fff7ed;
     }
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
          font-family: 'playfair-display';
     }
     p {
@@ -24,6 +25,9 @@
     }
     h3 {
       font-size: 2.5rem;
+    }
+    h4 {
+      font-size: 2.25rem;
     }
   }
   /* END Tailwind Base modifications */
@@ -64,6 +68,35 @@
 .fc-event div {
   height: 100%;
   width: 100%;
+}
+
+/* 5. make calendar squares 1:1 aspect ratio*/
+.fc .fc-daygrid-day-frame {
+  aspect-ratio: 1 / 1; /* 👈 makes it square */
+  height: auto !important;
+  background-color: #f4ecea!important;
+}
+
+.fc-toolbar-chunk {
+  color: #fff7ed;
+}
+
+.fc-toolbar-chunk h2 {
+  font-size: 1.125rem !important;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #fff7ed;
+}
+
+.fc-header-toolbar {
+  background: #697684;
+  border-radius: 5px;
+  padding: 6px .5rem 6px 1.5rem;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: .75em;
 }
 /* END Calendar Styling */
 

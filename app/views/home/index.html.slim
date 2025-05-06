@@ -1,7 +1,13 @@
+
 = render "hero"
 = render "key_info"  
 = render "quote"
-= render "promo_slides"
+
+- galleries = { house: [asset_path("house-1.jpg"), asset_path("house-1.jpg")], location: [asset_path("house-1.jpg"), asset_path("house-1.jpg")] }
+div data-controller="gallery" data-gallery-galleries-value="#{json_escape(galleries.to_json)}"
+  = render partial: "home/promo_slides"
+  = render partial: "shared/gallery_modal", locals: { galleries: galleries }
+  
 = render "getting_here"
 = render "booking"
 = render "manual"
