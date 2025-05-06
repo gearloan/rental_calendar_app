@@ -21,7 +21,7 @@ section.stage.overflow-hidden
           span.font-bold Location
           
         p.leading-8 Set along the Bird River — a quiet offshoot of the Chesapeake — the house is surrounded by marshes, trees, and open sky. You’ll see bald eagles, ospreys, and herons on a regular basis. The setting feels wild, but you’re under 30 minutes from city errands. It’s a rare mix: nature that doesn’t require a long drive or a total lifestyle shift.
-        = link_to("See More Photos", "#", class: "underline", data: { controller: "gallery", action: "click->gallery#open", gallery_target: "house" })
+        = link_to 'See More Photos', '#', class: 'underline font-bold', data: { action: "click->gallery#open", gallery_target: "location" }
 
-    .home-side-img.bg-cover.bg-center.w-1/2.col__image-wrap.h-screen style="background-image: url('#{asset_url 'osprey-nest.jpg'}')"
+    .home-side-img.bg-cover.bg-center.w-1/2.col__image-wrap.h-screen style="background-image: url('#{asset_url 'location-1.jpg'}')"
 
