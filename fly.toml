@@ -31,6 +31,8 @@ console_command = '/rails/bin/rails console'
 
 [env]
   PORT = "8080"
+  RAILS_ENV = "production"
+  RAILS_SERVE_STATIC_FILES = "true"
 
 [mounts]
   source = "data"
@@ -40,5 +42,5 @@ console_command = '/rails/bin/rails console'
   auto_extend_size_limit = "10GB"
 
 [processes]
-  app = "./bin/rake litestream:run ./bin/rails server"
+  app = "./entrypoint.sh"
   cron = "cron -f"
