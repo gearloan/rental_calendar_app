@@ -5,6 +5,8 @@ export default class extends Controller {
   startX = null
   swipeThreshold = 50 // pixels
 
+  
+
   handlePointerDown = (event) => {
     this.startX = event.clientX
   }
@@ -47,7 +49,7 @@ export default class extends Controller {
     const index = this.currentIndex
     const src = this.currentImages?.[index]
     console.log("🖼️ full-size src:", src)
-  
+
     container.className = "gallery-container w-full"
     container.innerHTML = ""    
 
@@ -57,6 +59,10 @@ export default class extends Controller {
     this.element.querySelector('[data-gallery-target="leftControls"]')?.classList.remove("hidden")
     this.element.querySelector('[data-gallery-target="rightControls"]')?.classList.remove("hidden")
 
+
+    this.element.querySelector('[data-gallery-target="gridClose"]')?.classList.add("hidden")
+    //this.element.querySelector('[data-gallery-target="gridClose"]')?.classList.remove("hidden")
+    
 
     const img = document.createElement("img")
     img.src = src
@@ -82,7 +88,7 @@ export default class extends Controller {
 
     const container = this.element.querySelector(".gallery-container")
     if (!container) return
-    container.className = "gallery-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+    container.className = "gallery-container grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4"
     container.innerHTML = ""
   
     this.element.querySelector('[data-gallery-target="leftControls"]')?.classList.add("hidden")
