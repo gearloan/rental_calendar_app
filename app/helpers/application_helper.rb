@@ -39,6 +39,4 @@ module ApplicationHelper
       "The bluebird carries the sky on his back.",
     ]
   end
-
-
 end

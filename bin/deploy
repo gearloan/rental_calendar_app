@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+
+echo "🔧 Building Tailwind CSS"
+npx tailwindcss -i ./app/assets/tailwind/application.css -o ./app/assets/builds/application.css --minify
+
+echo "📦 Building JavaScript"
+yarn build
+
+echo "🎯 Precompiling Rails assets"
+RAILS_ENV=production bin/rails assets:precompile
+
+echo "🛫 Deploying to Fly"
+fly deploy
