@@ -9,7 +9,7 @@ section.stage.overflow-hidden
         p.leading-8 This is the kind of house where the pace drops without you trying. You sit on the porch for longer than you meant to. You actually finish your coffee while it’s still hot. It’s waterfront, so you get that soft light and those wide views. There’s a private pier. A couple kayaks. The house itself is simple but thoughtfully redone — nothing fancy, just… good. It feels good to be here.
         = link_to 'See More Photos', '#', class: 'underline font-bold', data: { action: "click->gallery#open", gallery_target: "house" }
 
-    .home-side-img style="background-image: url('#{asset_url 'house-1.jpg'}')" class="bg-cover bg-center w-full md:w-1/2 h-[50vh] md:h-screen"
+    .home-side-img style="background-image: url('#{image_path 'house-1.jpg'}')" class="bg-cover bg-center w-full md:w-1/2 h-[50vh] md:h-screen"
 
   //  .home-side-img.bg-cover.bg-center.absolute.right-0.h-full.w-1/2
   .slide.w-screen.h-screen.relative.flex.flex-col-reverse.md:flex-row.overflow-hidden
@@ -22,4 +22,4 @@ section.stage.overflow-hidden
         p.leading-8 Set along the Bird River — a quiet offshoot of the Chesapeake — the house is surrounded by marshes, trees, and open sky. You’ll see bald eagles, ospreys, and herons on a regular basis. The setting feels wild, but you’re under 30 minutes from city errands. It’s a rare mix: nature that doesn’t require a long drive or a total lifestyle shift.
         = link_to 'See More Photos', '#', class: 'underline font-bold', data: { action: "click->gallery#open", gallery_target: "location" }
 
-    .home-side-img style="background-image: url('#{asset_url 'location-1.jpg'}')" class="bg-cover bg-center w-full md:w-1/2 h-[50vh] md:h-screen"
+    .home-side-img style="background-image: url('#{image_path 'location-1.jpg'}')" class="bg-cover bg-center w-full md:w-1/2 h-[50vh] md:h-screen"

@@ -19,7 +19,7 @@ function init() {
 // --- Animation for scroll-linked parallax images ---
 function initParallax(slides) {
   slides.forEach((slide) => {
-    const imageWrappers = slide.querySelectorAll(".col__image-wrap");
+    const imageWrappers = slide.querySelectorAll(".home-side-img");
 
     gsap.fromTo(
       imageWrappers,
