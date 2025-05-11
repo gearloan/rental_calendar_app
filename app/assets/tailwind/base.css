@@ -1,0 +1,28 @@
+
+/* START Tailwind Base modifications */
+@layer base {
+  body {
+    /*font-family: 'Lato';*/
+    color: #777777;
+    background-color: #fff7ed;
+  }
+  h1, h2, h3, h4 {
+       font-family: 'playfair-display';
+  }
+  p {
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 5rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 2.25rem;
+  }
+}
+/* END Tailwind Base modifications */
