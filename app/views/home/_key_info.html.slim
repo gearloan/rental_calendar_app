@@ -1,20 +1,33 @@
-section.flex.flex-col.md:flex-row.gap-8.max-w-screen-xl.mx-auto.py-5.px-4.md:px-8.items-center.my-6
+section.flex.flex-col.lg:flex-row.gap-8.max-w-screen-xl.mx-auto.py-5.px-4.lg:px-8.items-end.my-6
   .left
-    p.mb-4.lg:w-3/4
+    p.mb-4.lg:pr-12
       | This recently renovated waterfront home comfortably hosts up to six guests, with everything you'd expect from a well-appointed retreat — full kitchen, modern appliances, reliable high-speed internet, and easy access to nearby stores and services.
 
-    p.mb-8.lg:w-3/4
+    p.mb-8.lg:pr-12
       | It’s peaceful here. Quiet. You’re surrounded by nature, with a private pier just steps from the house and expansive water views. It feels remote, but you're still close to the basics — ideal for families, couples, or anyone looking to decompress without going off-grid.
 
-    ul.grid.grid-cols-2.md:grid-cols-3.gap-6
-      - rental_amenities.each do |icon, label, text|
-        li class="grid grid-cols-[auto_1fr] gap-4 items-center"
-          = inline_svg_tag("icons/#{icon}.svg", class: "w-9 h-9 text-blue-500", aria: { label: label }, focusable: false)
-          span = text
+    .section-wrapper.mt-8
+      .amenities-header.flex.justify-between.items-center.rounded-t-lg.px-4.py-2.border.border-b-0 class="bg-[#f0eae2] border-[#d8ddcb]"
+        .title.text-left.text-3xl
+          span.font-playfair.italic Amenities 
+          span.font-playfair.font-bold Overview
+        .view-all.flex.items-end.gap-2.hidden
+          a.uppercase.font-barlow.font-bold.tracking-wider class="text-[.8rem] text-[#819b99] border-b-[3px] border-[#fbb03b]" href="#"
+            | View All
+          .triangle-icon.relative.self-end class="w-[1.375em] h-[1.375em] bg-[#819b99]"
+            .triangle
+      .border.rounded-b-lg.p-4.pt-2 class="border-[#d8ddcb]"
+        ul.grid.grid-cols-2.lg:grid-cols-3.gap-6
+          - rental_amenities.each do |icon, label, text|
+            li class="grid grid-cols-[auto_1fr] gap-4 items-center"
+              = inline_svg_tag("icons/#{icon}.svg", class: "w-9 h-9 text-blue-500", aria: { label: label }, focusable: false)
+              span = text
 
-  hr.w-full.border-gray-300.my-6.md:hidden
+
+
+  hr.w-full.border-gray-300.my-6.lg:hidden
   .right
-    h4.text-center
-      span.italic Check 
-      span.font-bold Availibility
+    h4.text-3xl.px-6
+      span.font-playfair.italic Check 
+      span.font-playfair.font-bold Availibility
     #calendar[data-controller="calendar" data-calendar-target="calendar" class="max-w-[900px] mx-auto"]

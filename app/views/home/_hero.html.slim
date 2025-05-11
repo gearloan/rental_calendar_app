@@ -1,7 +1,7 @@
 section.hero.w-screen.h-screen.bg-cover.bg-center.relative style="background-image: url(#{asset_path('hero-bg.jpg')})"
   = link_to image_tag('br-logo.png', class: 'p-5', style: "width: 130px;"), root_path
 
-  nav.absolute.right-10.top-10.text-white.text-right
+  nav.absolute.right-10.top-10.text-white.text-right.hidden
     ul.space-y-4.uppercase.tracking-wider
       li
         = link_to "The House", "#house", class: "hover:underline"
