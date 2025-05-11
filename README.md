@@ -48,6 +48,16 @@ bundle exec whenever --update-crontab
 
 ---
 
+
+## 🔍 Local Production Testing
+
+- To test your app locally in production mode (with precompiled assets):
+
+- ```bash
+- RAILS_ENV=production RAILS_SERVE_STATIC_FILES=1 bin/rails server -p 4000
+
+
+
 # 🔄 ICS Feed Importing
 
 - Uses `EventImporter` service (`app/services/event_importer.rb`)

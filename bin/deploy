@@ -1,14 +1,28 @@
 #!/bin/bash
 set -euo pipefail
 
+# === Verify flyctl is available ===
+if ! command -v flyctl &> /dev/null; then
+  echo "❌ Error: 'flyctl' not found in PATH."
+  echo "👉 Install it via: curl -L https://fly.io/install.sh | sh"
+  echo "👉 And add this to your shell config: export PATH=\"\$HOME/.fly/bin:\$PATH\""
+  exit 1
+fi
+
 echo "🔧 Building Tailwind CSS"
 npx tailwindcss -i ./app/assets/tailwind/application.css -o ./app/assets/builds/application.css --minify
 
-echo "📦 Building JavaScript"
+echo "📦 Building JavaScript (esbuild)"
 yarn build
 
 echo "🎯 Precompiling Rails assets"
+RAILS_ENV=production bin/rails assets:clobber
 RAILS_ENV=production bin/rails assets:precompile
 
-echo "🛫 Deploying to Fly"
-fly deploy
+echo
+echo "🔍 Deployed asset fingerprints:"
+find public/assets -name "application-*.css" -o -name "application-*.js" | sort
+
+echo
+echo "🛫 Deploying to Fly.io..."
+flyctl deploy
