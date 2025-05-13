@@ -172,3 +172,11 @@ function initSlideAnimations(slides) {
       );
   });
 }
+
+
+/* START set vh height at mobile */
+window.addEventListener("load", () => {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+});
+/* END set vh height at mobile */
