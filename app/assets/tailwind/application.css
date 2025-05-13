@@ -2,8 +2,8 @@
 @import "base.css";
 @import "components.css";
 @import "calendar.css";
-@import "hero";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+

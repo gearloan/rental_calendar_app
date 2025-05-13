@@ -1,4 +1,4 @@
-section.hero.w-screen.h-screen.bg-cover.bg-center.relative style="background-image: url(#{asset_path('hero-bg.jpg')})"
+section.hero.w-screen.bg-cover.bg-center.relative style="height: calc(var(--vh, 1vh) * 100); background-image: url(#{asset_path('hero-bg.jpg')})"
   = link_to image_tag('logo-light.svg', class: 'p-5', style: "width: 180px;"), root_path
 
   nav class="absolute inset-0 flex items-center justify-center text-center text-white lg:block lg:text-right lg:top-10 lg:right-10"
