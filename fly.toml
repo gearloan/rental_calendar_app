@@ -44,3 +44,7 @@ console_command = '/rails/bin/rails console'
 [processes]
   app = "./entrypoint.sh"
   cron = "cron -f"
+
+[experimental]
+auto_start = false
+auto_stop = false
