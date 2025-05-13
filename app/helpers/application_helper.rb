@@ -18,6 +18,29 @@ module ApplicationHelper
     ]
   end
 
+  def link_with_triangle(text, href = "#", options = {})
+    triangle     = options.delete(:triangle) { true }
+    wrapper_class = options.delete(:wrapper_class)
+  
+    link_classes = "uppercase font-barlow font-bold tracking-wider text-[1rem] text-[#819b99] border-b-[3px] border-[#fbb03b]"
+    options[:class] = [link_classes, options[:class]].compact.join(" ")
+  
+    content_tag :div, class: "flex items-end gap-2 #{wrapper_class}" do
+      link = link_to text.upcase, href, options
+  
+      if triangle
+        triangle_div = content_tag(:div,
+          content_tag(:div, "", class: "triangle"),
+          class: "triangle-icon relative self-end w-[1.7em] h-[1.7em] bg-[#819b99]"
+        )
+        safe_join([link, triangle_div])
+      else
+        link
+      end
+    end
+  end
+  
+
   def thoreau_quotes
     [
       "We must learn to reawaken and keep ourselves awake, not by mechanical aids, but by an infinite expectation of the dawn, which does not forsake us even in our soundest sleep.",
