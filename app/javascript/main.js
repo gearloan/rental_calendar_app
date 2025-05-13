@@ -5,6 +5,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", init);
 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    const target = document.querySelector(this.getAttribute("href"))
+    if (!target) return
+
+    e.preventDefault()
+
+    gsap.to(window, {
+      scrollTo: target,
+      duration: 0.25,
+      ease: "power2.out"
+    })
+  })
+})
+
 function init() {
   const stage = document.querySelector(".stage");
   if (stage) gsap.set(stage, { autoAlpha: 1 });
