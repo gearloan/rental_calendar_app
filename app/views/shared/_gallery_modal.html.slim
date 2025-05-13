@@ -1,5 +1,5 @@
 / shared/_gallery_modal.html.slim
-div.gallery-modal.hidden.fixed.inset-0.bg-black.bg-opacity-75.z-50.flex.items-center.justify-center.overflow-y-auto.px-4
+div.gallery-modal.hidden.fixed.inset-0.bg-black.bg-opacity-75.z-50.flex.items-center.justify-center.overflow-y-auto.px-4 data-action="click->gallery#clickOutside"
   div.bg-white.rounded-lg.w-full.max-w-4xl.p-4.relative
 
     / Mobile close button (top-right)
@@ -19,7 +19,7 @@ div.gallery-modal.hidden.fixed.inset-0.bg-black.bg-opacity-75.z-50.flex.items-ce
       / RIGHT: controls container
       .flex.items-center.justify-center.sm:justify-end
         / Image view controls (prev/next)
-        .flex.items-center.gap-2 data-gallery-target="rightControls"
+        .flex.items-center.gap-0.pr-4 data-gallery-target="rightControls"
           button.px-3.py-1.bg-gray-200.rounded.hover:bg-gray-300.transition data-action="click->gallery#prev"
             | ← Prev
           button.ms-3.px-3.py-1.bg-gray-200.rounded.hover:bg-gray-300.transition data-action="click->gallery#next"
