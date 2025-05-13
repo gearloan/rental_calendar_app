@@ -57,9 +57,12 @@
 
 .fc-header-toolbar {
   background: #697684;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-  padding: 8px .5rem 8px 1.5rem;
+  padding: 8px .5rem 8px .8rem;
+}
+
+.fc .fc-toolbar-title {
+   font-weight: bold;
+   letter-spacing: .5px;
 }
 
 .fc .fc-toolbar.fc-header-toolbar {
