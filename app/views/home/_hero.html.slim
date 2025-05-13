@@ -1,7 +1,7 @@
 section.hero.w-screen.h-screen.bg-cover.bg-center.relative style="background-image: url(#{asset_path('hero-bg.jpg')})"
   = link_to image_tag('logo-light.svg', class: 'p-5', style: "width: 180px;"), root_path
 
-  nav.absolute.right-10.top-10.text-white.text-right
+  nav class="absolute inset-0 flex items-center justify-center text-center text-white lg:block lg:text-right lg:top-10 lg:right-10"
     ul.space-y-4.uppercase.tracking-wider
       li.hidden
         = link_to "The House", "#house", class: "hover:underline"
@@ -10,7 +10,7 @@ section.hero.w-screen.h-screen.bg-cover.bg-center.relative style="background-ima
       li.hidden
         = link_to "Contact", "#contact", class: "hover:underline"
       li
-        = link_to "Booking & Rates", "#booking", class: "bg-[#4891d3] hover:bg-blue-700 texta-[#fffed9] font-bold py-7 px-14 rounded"
+        = link_to "Booking & Rates", "#booking", class: "bg-[#4891d3] hover:bg-blue-700 text-[#fffed9] font-bold py-7 px-14 rounded"
 
   .title.absolute.inset-x-0.bottom-0.flex.justify-center
     = image_tag(image_path('hero-title.svg'), class: 'will-change-auto -mb-1', id: 'hero-title')
