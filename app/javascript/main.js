@@ -3,7 +3,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener("DOMContentLoaded", init);
+window.addEventListener("load", init);
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
@@ -33,30 +33,75 @@ function init() {
 
 // --- Animation for scroll-linked parallax images ---
 function initParallax(slides) {
-  slides.forEach((slide) => {
-    const imageWrappers = slide.querySelectorAll(".home-side-img");
+  ScrollTrigger.matchMedia({
 
-    gsap.fromTo(
-      imageWrappers,
-      { y: "-30vh" },
-      {
-        y: "30vh",
-        ease: "none",
-        scrollTrigger: {
-          trigger: slide,
-          start: "top bottom",
-          scrub: true,
-          snap: {
-            snapTo: 0.5,
-            duration: 1,
-            ease: "power4.inOut",
-          },
-          // markers: true, // Uncomment for debugging scroll positions
-        },
-      }
-    );
+    // Desktop
+    "(min-width: 768px)": function () {
+      const triggers = [];
+      slides.forEach((slide) => {
+        const imageWrappers = slide.querySelectorAll(".home-side-img");
+
+        const tween = gsap.fromTo(
+          imageWrappers,
+          { y: "-30vh" },
+          {
+            y: "30vh",
+            ease: "none",
+            scrollTrigger: {
+              trigger: slide,
+              start: "top bottom",
+              scrub: true,
+              snap: {
+                snapTo: 0.5,
+                duration: 1,
+                ease: "power4.inOut",
+              },
+            },
+          }
+        );
+
+        triggers.push(tween.scrollTrigger);
+      });
+
+      // Return cleanup to kill triggers on media change
+      return () => {
+        triggers.forEach(trigger => trigger.kill());
+      };
+    },
+
+    // Mobile
+    "(max-width: 767px)": function () {
+      const triggers = [];
+
+      slides.forEach((slide) => {
+        const imageWrappers = slide.querySelectorAll(".home-side-img");
+
+        const tween = gsap.fromTo(
+          imageWrappers,
+          { y: "-30vh" },
+          {
+            y: "30vh",
+            ease: "none",
+            scrollTrigger: {
+              trigger: slide,
+              start: "top bottom",
+              scrub: true,
+              // no snap
+            },
+          }
+        );
+
+        triggers.push(tween.scrollTrigger);
+      });
+
+      return () => {
+        triggers.forEach(trigger => trigger.kill());
+      };
+    }
+
   });
 }
+
 
 // --- Optional full slide animation block (commented for now) ---
 function initSlideAnimations(slides) {
