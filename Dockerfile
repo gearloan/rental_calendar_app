@@ -31,7 +31,6 @@ ENV BUNDLE_DEPLOYMENT="1" \
     BUNDLE_WITHOUT="development:test" \
     RAILS_ENV="production"
 
-
 # Throw-away build stage to reduce size of final image
 FROM base AS build
 
@@ -66,13 +65,14 @@ COPY . .
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
-# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
-
+# Precompile assets and fix permissions for public files
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile && \
+    chmod -R 0644 public/assets && \
+    chmod -R 0644 public/images || true && \
+    chown -R 1000:1000 public/assets public/images || true
 
 # Final stage for app image
 FROM base
-
 
 # Copy built artifacts: gems, application
 COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
@@ -82,7 +82,9 @@ COPY --from=build /rails /rails
 RUN groupadd --system --gid 1000 rails && \
     useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
     mkdir /data && \
+    mkdir -p public/assets && \
     chown -R 1000:1000 db log storage tmp /data
+
 USER 1000:1000
 
 # Deployment options
