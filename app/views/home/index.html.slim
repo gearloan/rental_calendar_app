@@ -1,9 +1,8 @@
-
 = render "hero"
 = render "key_info"  
 = render "quote"
 
-- galleries = { house: (1..8).map { |i| asset_path("house-#{i}.jpg") }, location: (1..8).map { |i| asset_path("location-#{i}.jpg") } }
+- galleries = { house: (1..8).map { |i| "/images/house-#{i}.jpg" }, location: (1..8).map { |i| "/images/location-#{i}.jpg" } }
 
 div data-controller="gallery" data-gallery-galleries-value="#{json_escape(galleries.to_json)}"
   = render partial: "home/promo_slides"
