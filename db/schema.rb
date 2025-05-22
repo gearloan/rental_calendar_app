@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_27_181143) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_22_205336) do
+  create_table "bookings", force: :cascade do |t|
+    t.string "guest_name"
+    t.string "email"
+    t.date "check_in"
+    t.date "check_out"
+    t.integer "guests"
+    t.text "special_requests"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "calendar_feeds", force: :cascade do |t|
     t.string "name"
     t.string "url"

@@ -1,0 +1,30 @@
+h1 Book the Birdhouse
+
+= form_with model: @booking, local: true, data: { controller: "cost" } do |f|
+  .grid.gap-4.max-w-xl
+    
+    = f.label :guest_name, class: "block font-medium"
+    = f.text_field :guest_name, class: "w-full border p-2 rounded"
+
+    = f.label :email, class: "block font-medium"
+    = f.email_field :email, class: "w-full border p-2 rounded"
+
+    = f.label :check_in, class: "block font-medium"
+    = f.date_field :check_in, data: { cost_target: "checkIn", action: "change->cost#update" }
+
+    = f.label :check_out, class: "block font-medium"
+    = f.date_field :check_out, data: { cost_target: "checkOut", action: "change->cost#update" }
+
+    = f.label :guests, class: "block font-medium"
+    = f.number_field :guests, min: 1, class: "w-full border p-2 rounded"
+
+    = f.label :special_requests, class: "block font-medium"
+    = f.text_area :special_requests, rows: 3, class: "w-full border p-2 rounded"
+
+    hr.my-4
+
+    div.text-lg.font-semibold Estimated Cost
+    div#cost-summary.text-sm.text-gray-700 data-cost-target="summary"
+      | Please select dates to see an estimate.
+
+    = f.submit "Request Booking", class: "mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"

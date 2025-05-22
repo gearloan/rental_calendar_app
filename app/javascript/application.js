@@ -1,19 +1,23 @@
+import "./controllers/cost_controller" // ← this guarantees bundling
 import { Application } from "@hotwired/stimulus"
 
 import CalendarController from "./controllers/calendar_controller"
 import FlatpickrController from "./controllers/flatpickr_controller"
-import GalleryController from "./controllers/gallery_controller" // ✅ Add this
+import GalleryController from "./controllers/gallery_controller"
+import CostController from "./controllers/cost_controller"
 
-window.Stimulus = Application.start()
-Stimulus.register("calendar", CalendarController)
-Stimulus.register("flatpickr", FlatpickrController)
-Stimulus.register("gallery", GalleryController) // ✅ Register it
+const application = Application.start()
+application.register("calendar", CalendarController)
+application.register("flatpickr", FlatpickrController)
+application.register("gallery", GalleryController)
+application.register("cost", CostController)
 
-//import "../assets/stylesheets/application.tailwind.css"
-import { gsap } from "gsap";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+window.Stimulus = application
 
 import "./main.js"
+
+import { gsap } from "gsap"
+import ScrollToPlugin from "gsap/ScrollToPlugin"
+import ScrollTrigger from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)

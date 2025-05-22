@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get "bookings/new"
+  get "bookings/create"
+  get "bookings/index"
+  get "bookings/show"
+  get "bookings/update"
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -16,6 +21,9 @@ Rails.application.routes.draw do
   resources :events, only: [:index]
 
   get "events/import_from_url", to: "events#import_from_url", as: "import_from_url_events"
+
+  resources :bookings, only: [:new, :create, :show, :update]
+
 
 end
 
