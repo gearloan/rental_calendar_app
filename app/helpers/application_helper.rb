@@ -52,13 +52,13 @@ module ApplicationHelper
       "I have a room all to myself; it is nature.",
       "There are moments when all anxiety and stated toil are becalmed in the infinite leisure and repose of nature.",
       #"Measure your health by your sympathy with morning and spring. If there is no response in you to the awakening of nature -if the prospect of an early morning walk does not banish sleep, if the warble of the first bluebird does not thrill you -know that the morning and spring of your life are past. Thus may you feel your pulse.",
-      "There are certain pursuits which, if not wholly poetic and true, do at least suggest a nobler and finer relation to nature than we know. The keeping of bees, for instance.",
+      #"There are certain pursuits which, if not wholly poetic and true, do at least suggest a nobler and finer relation to nature than we know. The keeping of bees, for instance.",
       #"This curious world we inhabit is more wonderful than convenient; more beautiful than it is useful; it is more to be admired and enjoyed than used.",
       "Nature spontaneously keeps us well. Do not resist her!",
-      "We need the tonic of wildness.",
+      #"We need the tonic of wildness.",
       #"Each new year is a surprise to us. We find that we had virtually forgotten the note of each bird, and when we hear it again, it is remembered like a dream, reminding us of a previous state of existence. How happens it that the associations it awakens are always pleasing, never saddening, reminiscences of our sanest hours. The voice of nature is always encouraging.",
-      "There can be no very black melancholy to him who lives in the midst of Nature and has his senses still.",
-      "The birds I heard today, which, fortunately, did not come within the scope of my science, sang as freshly as if it had been the first morning of creation.",
+      #"There can be no very black melancholy to him who lives in the midst of Nature and has his senses still.",
+      #"The birds I heard today, which, fortunately, did not come within the scope of my science, sang as freshly as if it had been the first morning of creation.",
       "The bluebird carries the sky on his back.",
     ]
   end
